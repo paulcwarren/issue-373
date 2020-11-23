@@ -16,6 +16,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.content.commons.annotations.HandleAfterSetContent;
 import org.springframework.content.commons.annotations.StoreEventHandler;
 import org.springframework.content.commons.repository.events.AfterSetContentEvent;
+import org.springframework.content.rest.config.ContentRestConfigurer;
+import org.springframework.content.rest.config.RestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -33,13 +35,21 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
-public class SpringContentApplication {
+public class SpringContentApplication implements ContentRestConfigurer {
+
+
+    @Override
+    public void configure(RestConfiguration restConfiguration) {
+        restConfiguration.forDomainType(File.class).putAndPostPreferResource();
+    }
 
     private static final Log logger = LogFactory.getLog(SpringContentApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(SpringContentApplication.class, args);
     }
+
+
 
     @Configuration
     @EnableJpaRepositories(basePackages = {"gettingstarted", "org.springframework.versions"})
