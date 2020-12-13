@@ -112,7 +112,12 @@ public class Issue373Test {
 
                 FIt("should be able to set content", () -> {
 
-                    given().multiPart("file", "file", new ByteArrayInputStream("This is plain text content!".getBytes()), "text/plain").when().put("/files/" + file.getId()).then().statusCode(HttpStatus.SC_CREATED);
+                    given().
+                        multiPart("file", "file", new ByteArrayInputStream("This is plain text content!".getBytes()), "text/plain").
+                    when().
+                        put("/files/" + file.getId()).
+                    then().
+                        statusCode(HttpStatus.SC_CREATED);
                 });
             });
         });

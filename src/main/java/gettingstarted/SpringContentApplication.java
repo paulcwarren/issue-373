@@ -67,7 +67,6 @@ public class SpringContentApplication {
                 logger.info(format("MyEventHandler::afterSetContent modifying file %s", f.getId()));
 
                 f.setName(f.getName() + " modified");
-                f = repo.saveAndFlush(f);
 
                 logger.info(format("MyEventHandler::afterSetContent creating working copy of file %s", f.getId()));
                 f = repo.lock(f);
