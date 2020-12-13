@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.2.RELEASE</version>
+        <version>2.3.6.RELEASE</version>
     </parent>
 
     <artifactId>issue-373</artifactId>
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>com.github.paulcwarren</groupId>
             <artifactId>spring-content-mongo-boot-starter</artifactId>
-            <version>1.1.0.M3</version>
+            <version>1.1.0.M5</version>
         </dependency>
 
         <dependency>
@@ -54,12 +54,12 @@
         <dependency>
             <groupId>com.github.paulcwarren</groupId>
             <artifactId>spring-content-rest-boot-starter</artifactId>
-            <version>1.1.0.M3</version>
+            <version>1.1.0.M5</version>
         </dependency>
         <dependency>
             <groupId>com.github.paulcwarren</groupId>
             <artifactId>spring-versions-jpa-boot-starter</artifactId>
-            <version>1.1.0.M3</version>
+            <version>1.1.0.M5</version>
         </dependency>
 
         <!-- Test dependencies -->
@@ -87,6 +87,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
